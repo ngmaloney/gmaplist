@@ -12,7 +12,7 @@ It was developed to be simple and require no dependencies, aside from Google Map
 
 //The Script takes a GMap2 instance as an argument. I chose not to have the plugin generate the GMap2 object to allow for more flexibility in customizing the map.
 <script>
-  gmap = new GMap2(document.getElementById('country_map'));
+  gmap = new GMap2(document.getElementById('map'));
   gmap.setCenter(new GLatLng(0, 0), 13);
   $('#newEngland').gmaplist(gmap);
 </script>
