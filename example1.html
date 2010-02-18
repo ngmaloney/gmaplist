@@ -1,0 +1,34 @@
+<html>
+<head>
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKYaO3iHtIJp7vbWR-lwa_hTb-vLQlFZmc2N8bgWI8YDPp5FEVBQSnZeAcu9H26_1vNdOb0GvTDmVJA"></script>
+<script>
+  google.load("maps", "2.x");
+  google.load("jquery", "1.3.1");        
+  google.setOnLoadCallback(function() {
+    gmap = new GMap2(document.getElementById('map'));
+    gmap.setCenter(new GLatLng(0, 0), 13);
+    $('#newEngland').gmaplist(gmap);
+  });
+</script>
+<script src="jquery.gmaplist.js"></script>
+<style media="screen" type="text/css">
+    #map, #country_map { 
+      width:500px; 
+      height:300px; 
+    }
+</style>
+</head>
+<body>
+
+<div id="map" style="display:none"></div>    
+<ul id="newEngland">
+  <li>Connecticut</li>
+  <li>Maine</li>
+  <li>Massachusetts></li>
+  <li>New Hampshire</li>
+  <li>Rhode Island</li>
+  <li>Vermont</li>
+</ul>
+
+</body>
+</html>
