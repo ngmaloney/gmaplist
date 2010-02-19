@@ -1,34 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-<head>
-<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKYaO3iHtIJp7vbWR-lwa_hTb-vLQlFZmc2N8bgWI8YDPp5FEVBQSnZeAcu9H26_1vNdOb0GvTDmVJA"></script>
-<script>
-  google.load("maps", "2.x");
-  google.load("jquery", "1.3.1");        
-  google.setOnLoadCallback(function() {
-    gmap = new GMap2(document.getElementById('map'));
-    gmap.setCenter(new GLatLng(0, 0), 13);
-    $('#newEngland').gmaplist(gmap);
-  });
-</script>
-<script src="jquery.gmaplist.js"></script>
-<style media="screen" type="text/css">
-    #map, #country_map { 
-      width:500px; 
-      height:300px; 
-    }
-</style>
-</head>
-<body>
-
-<div id="map" style="display:none"></div>    
-<ul id="newEngland">
-  <li>Connecticut</li>
-  <li>Maine</li>
-  <li>Massachusetts</li>
-  <li>New Hampshire</li>
-  <li>Rhode Island</li>
-  <li>Vermont</li>
-</ul>
-
-</body>
+  <head>
+    <title>GMAP List - Simple Example</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/reset-fonts-grids/reset-fonts-grids.css&2.8.0r4/build/base/base-min.css"> 
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    
+    <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKYaO3iHtIJp7vbWR-lwa_hQ3TGjyPcge1uoyLYv8dGArsmOsbhQ1ptv-4Y7zdT-QIosD_Z9AjYyzSw"></script>
+    <script>
+      google.load("maps", "2.x");
+      google.load("jquery", "1.3.1");        
+      google.setOnLoadCallback(function() {
+        gmap = new GMap2(document.getElementById('map'));
+        gmap.setCenter(new GLatLng(0, 0), 13);
+        $('#newEngland').gmaplist(gmap);
+      });
+    </script>
+    <script src="jquery.gmaplist.js"></script>
+    
+  </head>
+  <body>
+    <div id="doc">
+       <div id="hd"><!-- header -->
+         <h1>GMAP LIST</h1>
+         <h2>A jquery plugin for creating maps from an HTML list</h2>   
+       </div> 
+       <div id="bd"><!-- body -->
+         <div id="map" style="display:none"></div>    
+         <ul id="newEngland">
+           <li>Connecticut</li>
+           <li>Maine</li>
+           <li>Massachusetts</li>
+           <li>New Hampshire</li>
+           <li>Rhode Island</li>
+           <li>Vermont</li>
+         </ul>
+       </div>
+        <div id="ft"><!-- footer -->
+          &copy; 2010 Nicholas G. Maloney
+        </div>
+    </div>
+    
+  </body>
 </html>

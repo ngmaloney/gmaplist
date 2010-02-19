@@ -1,151 +1,142 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
   <head>
+    <title>GMAP List - Advanced Example</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/reset-fonts-grids/reset-fonts-grids.css&2.8.0r4/build/base/base-min.css"> 
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
     
-  <!--
-  This is a more advanced example of using Jquery Map List. It contains 2 map instances that are displayed after clicking on an anchor link.
-  -->
-  
-    <title>jQuery Mapper Prototype</title>
-    <!-- Include JQuery -->
-    <!-- 
-    localhost key: ABQIAAAAKYaO3iHtIJp7vbWR-lwa_hTb-vLQlFZmc2N8bgWI8YDPp5FEVBQSnZeAcu9H26_1vNdOb0GvTDmVJA
-    binarytransport key: ABQIAAAAKYaO3iHtIJp7vbWR-lwa_hQ3TGjyPcge1uoyLYv8dGArsmOsbhQ1ptv-4Y7zdT-QIosD_Z9AjYyzSw
-    -->
     <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAKYaO3iHtIJp7vbWR-lwa_hQ3TGjyPcge1uoyLYv8dGArsmOsbhQ1ptv-4Y7zdT-QIosD_Z9AjYyzSw"></script>
+    <script>
+    google.load("maps", "2.x");
+    google.load("jquery", "1.3.1");        
+    google.setOnLoadCallback(function() {
+       //Function for viewing State Map
+       var view_state_map = function() {
+          var map = new GMap2(document.getElementById('map'));
+          map.setCenter(new GLatLng(0, 0), 13);
+          map.addControl(new GSmallMapControl());
+          map.addControl(new GMapTypeControl());
+          $('#markers').gmaplist(map,{delay:100});
+          return false;
+       }
 
-<script>
-  google.load("maps", "2.x");
-  google.load("jquery", "1.3.1");        
-  google.setOnLoadCallback(function() {
-     //Function for viewing State Map
-     var view_state_map = function() {
-        var map = new GMap2(document.getElementById('map'));
-        map.setCenter(new GLatLng(0, 0), 13);
-        map.addControl(new GSmallMapControl());
-        map.addControl(new GMapTypeControl());
-        $('#markers').gmaplist(map,{delay:100,debug:true});
-        return false;
-     }
-   
-     //Function for viewing Country Map
-     var view_country_map = function() {
-        cmap = new GMap2(document.getElementById('country_map'));
-        cmap.setCenter(new GLatLng(0, 0), 13);
-        $('#countries').gmaplist(cmap, {delay:100,debug:true});
-        return false;
-     }
-     
-     var tester = function() {
-       alert('clicked');
-     }
-     
-     //Add Click Events
-     $('#view_state_map').click(view_state_map);
-     $('#view_country_map').click(view_country_map);
-    });
-   
+       //Function for viewing Country Map
+       var view_country_map = function() {
+          cmap = new GMap2(document.getElementById('country_map'));
+          cmap.setCenter(new GLatLng(0, 0), 13);
+          $('#countries').gmaplist(cmap, {delay:100});
+          return false;
+       }
 
-</script>
+       var tester = function() {
+         alert('clicked');
+       }
 
-<script src="jquery.gmaplist.js"></script>
+       //Add Click Events
+       $('#view_state_map').click(view_state_map);
+       $('#view_country_map').click(view_country_map);
+      });
+
+    </script>
+    <script src="jquery.gmaplist.js"></script>
     
-    <!-- CSS -->
-    <style media="screen" type="text/css">
-        #map, #country_map { 
-          width:500px; 
-          height:300px; 
-        }
-    </style>
   </head>
   <body>
+    <div id="doc">
+       <div id="hd"><!-- header -->
+         <h1>GMAP LIST</h1>
+         <h2>A jquery plugin for creating maps from an HTML list</h2>   
+       </div> 
+       <div id="bd"><!-- body -->
+         <div class="button_link"><a href="#" id="view_state_map">View Map</a></div>
+         <div id="map" style="display:none"></div>    
+         <!-- Add Map Markers -->
+         <ul id="markers">
+           <li>California</li>
+           <li>Colorado</li>
+           <li>Connecticut</li>
+           <li>Florida</li>
+           <li>Hawaii</li>
+           <li>Idaho</li>
+           <li>Illinois</li>
+           <li>Indiana</li>
+           <li>Massachusetts</li>
+           <li>Maine</li>
+           <li>Maryland</li>
+           <li>New Hampshire</li>
+           <li>New Jersey</li>
+           <li>New Mexico</li>
+           <li>Nevada</li>
+           <li>New York</li>
+           <li>North Carolina</li>
+           <li>Ohio</li>
+           <li>Oregon</li>
+           <li>Pennsylvania</li>
+           <li>Puerto Rico</li>
+           <li>Rhode Island</li>
+           <li>Tennessee</li>
+           <li>Texas</li>
+           <li>Utah</li>
+           <li>Virginia</li>
+           <li>Virgin Islands</li>
+           <li>Vermont</li>
+           <li>Wisconsin</li>    
+         </ul>
+
+         <div class="button_link"><a href="#" id="view_country_map">View Map</a></div>
+         <div id="country_map" style="display:none"></div>
+         <ul id="countries">
+           <li>Armenia</li>
+           <li>Bahrain</li>
+           <li>Bolivia</li>
+           <li>Brazil</li>
+           <li>Bulgaria</li>
+           <li>Canada</li>
+           <li>Chile</li>
+           <li>Cypress</li>
+           <li>Dominican Republic</li>
+           <li>Ecuador</li>
+           <li>France</li>
+           <li>Germany</li>
+           <li>Greece</li>
+           <li>Guatemala</li>
+           <li>Haiti</li>
+           <li>Honduras</li>
+           <li>Hong Kong</li>
+           <li>India</li>
+           <li>Indonesia</li>
+           <li>Japan</li>
+           <li>Jordan</li>
+           <li>Korea</li>
+           <li>Kuwait</li>
+           <li>Lebanon</li>
+           <li>Mexico</li>
+           <li>Morocco</li>
+           <li>Netherlands Antilles</li>
+           <li>Pakistan</li>
+           <li>Panama</li>
+           <li>Peru</li>
+           <li>Philippines</li>
+           <li>People's Republic of China</li>
+           <li>Saudi Arabia</li>
+           <li>Singapore</li>
+           <li>South Korea</li>
+           <li>Spain</li>
+           <li>Tanzania</li>
+           <li>United Arab Emirates</li>
+           <li>Thailand</li>
+           <li>Turkey</li>
+           <li>Ukraine</li>
+           <li>United Arab Emirates</li>
+           <li>Venezuela</li>
+           <li>Vietnam</li>
+           <li>West Indies</li>
+         </ul>
+       </div>
+        <div id="ft"><!-- footer -->
+          &copy; 2010 Nicholas G. Maloney
+        </div>
+    </div>
     
-    <a href="#" id="view_state_map">View Map</a>
-    <div id="map" style="display:none"></div>    
-    <!-- Add Map Markers -->
-    <ul id="markers">
-      <li>California</li>
-      <li>Colorado</li>
-      <li>Connecticut</li>
-      <li>Florida</li>
-      <li>Hawaii</li>
-      <li>Idaho</li>
-      <li>Illinois</li>
-      <li>Indiana</li>
-      <li>Massachusetts</li>
-      <li>Maine</li>
-      <li>Maryland</li>
-      <li>New Hampshire</li>
-      <li>New Jersey</li>
-      <li>New Mexico</li>
-      <li>Nevada</li>
-      <li>New York</li>
-      <li>North Carolina</li>
-      <li>Ohio</li>
-      <li>Oregon</li>
-      <li>Pennsylvania</li>
-      <li>Puerto Rico</li>
-      <li>Rhode Island</li>
-      <li>Tennessee</li>
-      <li>Texas</li>
-      <li>Utah</li>
-      <li>Virginia</li>
-      <li>Virgin Islands</li>
-      <li>Vermont</li>
-      <li>Wisconsin</li>    
-    </ul>
-    
-    <a href="#" id="view_country_map">View Map</a>
-    <div id="country_map" style="display:none"></div>
-    <ul id="countries">
-      <li>Armenia</li>
-      <li>Bahrain</li>
-      <li>Bolivia</li>
-      <li>Brazil</li>
-    </ul>
-    <!-- Commented out for testing
-    <li>Bulgaria</li>
-    <li>Canada</li>
-    <li>Chile</li>
-    <li>Cypress</li>
-    <li>Dominican Republic</li>
-    <li>Ecuador</li>
-    <li>France</li>
-    <li>Germany</li>
-    <li>Greece</li>
-    <li>Guatemala</li>
-    <li>Haiti</li>
-    <li>Honduras</li>
-    <li>Hong Kong</li>
-    <li>India</li>
-    <li>Indonesia</li>
-    <li>Japan</li>
-    <li>Jordan</li>
-    <li>Korea</li>
-    <li>Kuwait</li>
-    <li>Lebanon</li>
-    <li>Mexico</li>
-    <li>Morocco</li>
-    <li>Netherlands Antilles</li>
-    <li>Pakistan</li>
-    <li>Panama</li>
-    <li>Peru</li>
-    <li>Philippines</li>
-    <li>People's Republic of China</li>
-    <li>Saudi Arabia</li>
-    <li>Singapore</li>
-    <li>South Korea</li>
-    <li>Spain</li>
-    <li>Tanzania</li>
-    <li>United Arab Emirates</li>
-    <li>Thailand</li>
-    <li>Turkey</li>
-    <li>Ukraine</li>
-    <li>United Arab Emirates</li>
-    <li>Venezuela</li>
-    <li>Vietnam</li>
-    <li>West Indies</li>
-    -->
   </body>
 </html>
-

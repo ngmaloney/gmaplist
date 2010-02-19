@@ -1,0 +1,19 @@
+pre {
+  font: 100% courier,monospace;
+  border: 1px solid #ccc;
+  overflow: auto;
+  overflow-x: scroll;
+  width: 90%;
+  padding: 0 1em 1em 1em;
+  margin: 1em auto 2em auto;
+  background: #fff7f0;
+  color: #000
+}
+code {
+  font-size: 120%
+}
+
+#map, #country_map { 
+  width:500px; 
+  height:300px; 
+}

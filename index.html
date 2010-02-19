@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <title>GMAP List - Jquery Plugin</title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.8.0r4/build/reset-fonts-grids/reset-fonts-grids.css&2.8.0r4/build/base/base-min.css"> 
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div id="doc">
+       <div id="hd"><!-- header -->
+         <h1>GMAP LIST</h1>
+         <h2>A jquery plugin for creating maps from an HTML list</h2>   
+       </div> 
+       <div id="bd"><!-- body -->
+         <h3> Overview </h3>
+         <p>This plugin generates a Google Map from an HTML list. It performs a geocoding lookup on each of the &lt;li&gt;'s and adds the 
+         resulting point to the map. Because each element requires a geocode lookup, lists with many elements may take a while to 
+         render. A loading animation is displayed while the points are being looked up.</p>
+         
+         <p>It was developed to be simple and require no dependencies, aside from Google Maps. Because of the overhead required for 
+         looking up each address this plugin is not suitable for large data sets. The optimal size seems to be about ~10.</p>
+         
+         <p>The Script takes a GMap2 instance as an argument. I chose not to have the plugin generate the GMap2 object to allow 
+         for more flexibility in customizing the map. </p>
+         
+         <h3>Download</h3>
+
+         <p><a href="http://github.com/ngmaloney/gmaplist/archives/master">GMap List</a></p>
+
+         <p>The project is hosted on <a href="http://github.com/ngmaloney/gmaplist">github</a>.</p> 
+         
+         <h3>Basic Usage</h3>         
+
+        <pre>         
+         <code class="html">
+          &lt;div id="map" style="display:none"&gt;&lt;/div&gt;    
+          &lt;ul id="newEngland"&gt;
+            &lt;li&gt;Connecticut&lt;/li&gt;
+            &lt;li&gt;Maine&lt;/li&gt;
+            &lt;li&gt;Massachusetts&gt;&lt;/li&gt;
+            &lt;li&gt;New Hampshire&lt;/li&gt;
+            &lt;li&gt;Rhode Island&lt;/li&gt;
+            &lt;li&gt;Vermont&lt;/li&gt;
+          &lt;/ul&gt;
+         </code>        
+         
+         <code class="javascript">           
+         &lt;script&gt;
+           gmap = new GMap2(document.getElementById('map'));
+           gmap.setCenter(new GLatLng(0, 0), 13);
+           $('#newEngland').gmaplist(gmap);
+         &lt;/script&gt;
+         </code>
+        </pre>
+        
+        <h3>Options</h3>
+        
+        <p>The plugin accepts an options object. The following variables are accepted:</p>
+        
+        <ul>          
+          <li><strong>delay:</strong> The lookup delay in milliseconds.<br/>
+             Geocoding lookups need to be throttled to prevent 602 errors. The default value of 100ms is typically good enough.
+          </li>
+          
+          <li><strong>loadingGraphic:</strong> Path to a loading graphic<br/>
+             The map is not displayed until all geocoding has been performed. This option is the path to a loading graphic
+          </li>
+
+          <li><strong>debug:</strong> Logs some debugging info to the console<br/>
+            Currently logs each point result from the Google gatLatLng() hook.
+          </li>
+        </ul>
+        
+        <h3>More Examples</h3>
+        
+        <p><a href="example1.html">Example 1</a> Displays 1 map containing a list of the New England states.</p>
+        
+        <p><a href="example2.html">Example 2</a> Is a more advanced example that contains 2 maps, both of which are fired off as a click event. This is useful for larger maps as they have a longer loading time due to Geocoding.</p>
+       </div> 
+       
+       <h3>Assistance/Feedback</h3>
+       
+       <p>If you have any feedback, questions, or need help my twitter account is <a href="http://twitter.com/ngmaloney">@ngmaloney</a>.</p>
+       
+       <h3>Sponsor</h3>
+       
+       <p>This plugin is sponsored by <a href="http://www.bentley.edu">Bentley Univeristy</a></p>
+       
+        <div id="ft"><!-- footer -->
+          &copy; 2010 Nicholas G. Maloney
+        </div>
+    </div>
+    
+  </body>
+</html>
